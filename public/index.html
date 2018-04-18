@@ -13,7 +13,35 @@
     <script type="text/javascript" src="../app.js"></script>
     <title>Travel Site</title>
   </head>
-  <body ng-controller="MenuController as ctrl">
+  <body>
+
+    <header ng-controller="MenuController as ctrl">
+      <nav class="mobile tablet">
+        <i class="material-icons menu-icon" ng-click="ctrl.mobileMenu = !ctrl.mobileMenu">menu</i>
+        <!-- <div class="row search">
+          <i class="material-icons search-icon">search</i>
+          <input class="search-box" type="text" placeholder="search"></input>
+        </div> -->
+      </nav>
+      <div class="mobile tablet menu-bkgd" ng-click="ctrl.mobileMenu = false" ng-class="ctrl.mobileMenu? 'slide' : ''">
+      </div>
+      <div class="slide-menu column" ng-class="ctrl.mobileMenu? 'slide' : ''">
+        <a class="menu-link row" href="/" ng-click="ctrl.mobileMenu = false">
+          <h5>Countries</h5>
+        </a>
+        <a class="menu-link row" href="#" ng-click="ctrl.mobileMenu = false">
+          <h5>States</h5>
+        </a>
+        <a class="menu-link row" href="#" ng-click="ctrl.mobileMenu = false">
+          <h5>US Roadtrip</h5>
+        </a>
+      </div>
+
+    </header>
+
+    <main ng-view>
+    </main>
+
 
   </body>
 </html>
