@@ -4,7 +4,7 @@
     <base href="/">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700|Source+Sans+Pro:300,400" rel="stylesheet">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/tablet.css">
     <link rel="stylesheet" href="../css/desktop.css">
@@ -16,15 +16,15 @@
   </head>
   <body>
 
-    <header ng-controller="MenuController as ctrl">
-      <nav class="mobile tablet">
+    <header ng-controller="MenuController as ctrl"  class="mobile tablet">
+      <nav>
         <i class="material-icons menu-icon" ng-click="ctrl.mobileMenu = !ctrl.mobileMenu">menu</i>
         <!-- <div class="row search">
           <i class="material-icons search-icon">search</i>
           <input class="search-box" type="text" placeholder="search"></input>
         </div> -->
       </nav>
-      <div class="mobile tablet menu-bkgd" ng-click="ctrl.mobileMenu = false" ng-class="ctrl.mobileMenu? 'slide' : ''">
+      <div class="menu-bkgd" ng-click="ctrl.mobileMenu = false" ng-class="ctrl.mobileMenu? 'slide' : ''">
       </div>
       <div class="slide-menu" ng-class="ctrl.mobileMenu? 'slide' : ''">
         <a class="menu-link" href="#" ng-click="ctrl.mobileMenu = false">
@@ -40,24 +40,46 @@
 
     </header>
 
+    <div class="heading">
+
+      <h1>Travel Site</h1>
+
+    </div>
+    <div class="nav-bar desktop">
+      <div class="nav-links">
+        <a class="menu-link" href="#">
+          <h5>Countries</h5>
+        </a>
+        <a class="menu-link" href="#">
+          <h5>States</h5>
+        </a>
+        <a class="menu-link" href="#">
+          <h5>US Roadtrip</h5>
+        </a>
+      </div>
+    </div>
+
+
     <main ng-view>
     </main>
 
     <footer>
-      <div class="social-media">
-        <a href="#" class="social-media-icon">
-          <img src="../css/images/twitter.svg">
-        </a>
-        <a href="#" class="social-media-icon">
-          <img src="../css/images/instagram.svg">
-        </a>
-        <a href="#" class="social-media-icon">
-          <img src="../css/images/facebook.svg">
-        </a>
+      <div class="footing">
+        <div class="social-media">
+          <a href="#" class="social-media-icon">
+            <img src="../css/images/twitter.svg">
+          </a>
+          <a href="#" class="social-media-icon">
+            <img src="../css/images/instagram.svg">
+          </a>
+          <a href="#" class="social-media-icon">
+            <img src="../css/images/facebook.svg">
+          </a>
+        </div>
+        <h6>
+          Icons made by <a href="https://www.flaticon.com/authors/linh-pham" title="Linh Pham">Linh Pham</a> and <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+        </h6>
       </div>
-      <h6>
-        Icons made by <a href="https://www.flaticon.com/authors/linh-pham" title="Linh Pham">Linh Pham</a> and <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-      </h6>
     </footer>
 
   </body>

@@ -1,10 +1,47 @@
 @media (min-width: 1280px) {
-  header {
+  .heading {
+    width: 1280px;
+    margin: auto;
+  }
+
+  .nav-bar {
+    width: 100%;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+  }
+
+  .nav-links {
+    width: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .menu-link {
+    padding: 20px 0;
     border-bottom: none;
+  }
+
+  .menu-link > h5 {
+    font-weight: normal;
+    letter-spacing: 5px;
+  }
+
+  .footing {
+    width: 1280px;
+  }
+
+  .social-media {
+    width: 50%;
+    margin: auto;
   }
 
   .mobile {
     display: none;
+  }
+
+  .desktop {
+    display: flex;
   }
 
 }

@@ -86,9 +86,10 @@ nav {
   left: -45%;
   top: 0;
   margin: 65px 0 0 0;
-  background-color: rgba(255, 255, 255, .9);
+  background-color: rgba(255, 255, 255, 1);
   display: flex;
   flex-direction: column;
+  border-right: 1px solid lightgrey;
 }
 
 .menu-link {
@@ -133,13 +134,104 @@ input:focus, button:focus, textarea:focus, select:focus {
   left: 0;
 }
 
+.heading {
+  margin: 65px 10px 0 10px;
+  flex-shrink: 0;
+}
+
+.heading > h1 {
+  text-transform: uppercase;
+  letter-spacing: 9px;
+  text-align: center;
+  padding: 40px 0;
+  font-weight: normal;
+  font-size: 24px;
+  margin: 15px 0;
+}
+
 main {
   flex: 1 0 auto;
-  margin: 65px 10px 0 10px;
+  margin: 0;
   display: flex;
   flex-direction: column;
 }
 
+.sub-heading {
+  background-color: #3D3E42;
+  padding: 15px;
+  color: ghostwhite;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: normal;
+  font-size: 18px;
+  margin: 0;
+  width: 80%;
+}
+
+.alt-sub-heading {
+  align-self: flex-end;
+  text-align: right;
+}
+
+.recent-post {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.recent-img {
+  width: 100%;
+  object-fit: cover;
+  height: 250px;
+}
+
+.recent-blurb {
+  padding: 10px;
+}
+
+.recent-text {
+  display: inline;
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: .5px;
+  font-weight: 300;
+}
+
+.more-link {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.about {
+  width: 100%;
+  background-color: #ebebec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 55px 0 0 0;
+  padding-bottom: 50px;
+}
+
+.about > h2 {
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: normal;
+  font-size: 18px;
+  padding: 40px 0 0 0;
+  margin: 15px 0;
+}
+
+.about > p {
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: .5px;
+  font-weight: 300;
+  padding: 0 15px;
+  margin: 0;
+  text-align: center;
+}
 
 footer {
   width: 100%;
@@ -148,8 +240,13 @@ footer {
   padding: 10px;
   flex-shrink: 0;
   display: flex;
-  flex-direction: column;
   font-size: 10px;
+}
+
+.footing {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .social-media {
@@ -162,7 +259,6 @@ footer {
 .social-media-icon {
   width: 30px;
   height: 30px;
-  /*overflow-y: hidden;*/
 }
 
 .social-media-icon > img {
