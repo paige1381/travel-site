@@ -8,16 +8,19 @@
     width: 100%;
     border-top: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
+    flex-shrink: 0;
+    margin: 0 0 40px 0;
   }
 
   .nav-links {
     width: 600px;
     margin: auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .menu-link {
+    display: flex;
     padding: 20px 0;
     border-bottom: none;
   }
@@ -25,6 +28,31 @@
   .menu-link > h5 {
     font-weight: normal;
     letter-spacing: 5px;
+  }
+
+  .sub-heading {
+    width: 50%;
+    text-align: right;
+    padding: 15px 150px 15px 15px;
+  }
+
+  .alt-sub-heading {
+    width: 50%;
+    text-align: left;
+    padding: 15px 15px 15px 150px;
+    margin-top: 15px;
+  }
+
+  .recent-post {
+    width: 50%;
+  }
+
+  .recent-img {
+    height: 400px;
+  }
+
+  .recent-img-2 {
+    height: 200px;
   }
 
   .footing {

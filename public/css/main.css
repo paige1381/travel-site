@@ -190,6 +190,14 @@ main {
   padding: 10px;
 }
 
+.blog-title {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: normal;
+  font-size: 16px;
+  margin: 0 0 5px 0;
+}
+
 .recent-text {
   display: inline;
   width: 100%;

@@ -1,4 +1,51 @@
 @media (min-width: 600px) {
+  .sub-heading {
+    width: 60%;
+    padding-left: 100px;
+  }
+
+  .alt-sub-heading {
+    width: 60%;
+    padding-right: 100px;
+  }
+
+  .recent-post {
+    width: 65%;
+    flex-direction: row;
+    margin: 25px auto;
+  }
+
+  .recent-img {
+    width: 45%;
+    height: 300px;
+  }
+
+  .recent-img-2 {
+    width: 100%;
+    object-fit: cover;
+    height: 150px;
+  }
+
+  .blog-title {
+    margin: 10px 0 5px 0;
+  }
+
+  .recent-blurb {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+  }
+
+  .recent-text {
+    margin: 0;
+  }
+
+  .about > p {
+    width: 65%;
+    margin: 0 auto;
+  }
+
   .mobile {
     display: none;
   }
