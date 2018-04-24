@@ -55,6 +55,19 @@
     height: 200px;
   }
 
+  .post-index {
+    width: 50%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px auto;
+  }
+
+  .blog {
+    width: 50%;
+    margin: 0 auto 40px auto;
+  }
+
   .footing {
     width: 1280px;
   }

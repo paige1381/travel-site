@@ -173,20 +173,20 @@ main {
   text-align: right;
 }
 
-.recent-post {
+.recent-post, .post-card {
   width: 100%;
   display: flex;
   flex-direction: column;
   margin: 15px 0;
 }
 
-.recent-img {
+.recent-img, .card-img, .blog-img {
   width: 100%;
   object-fit: cover;
   height: 250px;
 }
 
-.recent-blurb {
+.recent-blurb, .card-blurb {
   padding: 10px;
 }
 
@@ -239,6 +239,38 @@ main {
   padding: 0 15px;
   margin: 0;
   text-align: center;
+}
+
+.post-index {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog {
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-text {
+  width: 100%;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: .5px;
+  font-weight: 300;
+  margin: 0;
+  padding: 15px 10px 0 10px;
+}
+
+.feature-img {
+  width: 100%;
+  object-fit: cover;
+  height: 375px;
+  margin: 15px 0 0 0;
+}
+
+.blog-img {
+  margin: 15px 0 0 0;
 }
 
 footer {
