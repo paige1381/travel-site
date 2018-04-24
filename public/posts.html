@@ -1,17 +1,17 @@
 <h2 class="sub-heading">US Roadtrip</h2>
 <div class="post-index">
-  <div class="post-card">
-    <img class="card-img" src="https://images.unsplash.com/photo-1508495761350-6a8bf2a2128a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=d6f5c6aef82385e442e5b1b6f439c733&auto=format&fit=crop&w=1050&q=80">
+  <div class="post-card" ng-repeat="blog in ctrl.blogs">
+    <img class="card-img" src="{{blog.images[0].url}}">
     <div class="card-blurb">
-      <h3 class="blog-title">Lorem ipsum dolor sit amet</h3>
+      <h3 class="blog-title">{{blog.title}}</h3>
       <p class="recent-text">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ... <a class="more-link" href="/post">Read More ></a>
+        {{blog.paragraphs[0].text | limitTo: 185}} ... <a class="more-link" href="/post/{{blog.id}}">Read More ></a>
       </p>
 
     </div>
   </div>
 
-  <div class="post-card">
+  <!-- <div class="post-card">
     <img class="card-img" src="https://images.unsplash.com/photo-1468437012950-7d4960be6383?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f66128668c94c140eb93cc3cbfd6be7b&auto=format&fit=crop&w=1111&q=80">
     <div class="card-blurb">
       <h3 class="blog-title">Lorem ipsum dolor sit amet</h3>
@@ -30,5 +30,5 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ... <a class="more-link" href="/post">Read More ></a>
       </p>
     </div>
-  </div>
+  </div> -->
 </div>

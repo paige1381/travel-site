@@ -63,6 +63,10 @@
     margin: 10px auto;
   }
 
+  .blog {
+    width: 50%;
+  }
+
   form {
     width: 50%;
   }
