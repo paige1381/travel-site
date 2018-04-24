@@ -22,6 +22,9 @@ app.controller('PostController', ['$http', function($http) {
 
 }]);
 
+app.controller('CreateController', ['$http', function($http) {
+
+}]);
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({ enabled: true });
@@ -41,6 +44,12 @@ app.config(['$routeProvider','$locationProvider', function($routeProvider, $loca
   $routeProvider.when('/post', {
     templateUrl: 'post.html',
     controller: 'PostController',
+    controllerAs: 'ctrl'
+  });
+
+  $routeProvider.when('/create', {
+    templateUrl: 'create.html',
+    controller: 'CreateController',
     controllerAs: 'ctrl'
   });
 

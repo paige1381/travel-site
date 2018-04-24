@@ -273,6 +273,67 @@ main {
   margin: 15px 0 0 0;
 }
 
+form {
+  margin: 15px 10px 40px 10px;
+}
+
+.form-section {
+  background-color: rgba(211, 211, 211, .4);
+  padding: 20px 10px;
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
+input {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  letter-spacing: .5px;
+  font-weight: 300;
+  width: 100%;
+}
+
+.input{
+  border: 1px solid grey;
+  padding: 10px !important;
+  margin-bottom: 10px;
+}
+
+trix-editor {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 0;
+}
+
+.button-sm, .button-lg {
+  padding: 10px;
+  width: 50%;
+  text-align: center;
+  background-color: #3D3E42;
+  margin-top: 10px;
+  cursor: pointer;
+  color: ghostwhite;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.button-lg {
+  padding: 15px 10px;
+  margin-top: 20px;
+  width: 48%;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-weight: normal;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
 footer {
   width: 100%;
   background-color: #3D3E42;
