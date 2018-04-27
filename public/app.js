@@ -100,6 +100,12 @@ app.controller('PostController', ['$http', 'blogService', '$routeParams', functi
 
 app.controller('CreateController', ['$http', function($http) {
 
+  // this.blogData = {};
+  //
+  // this.processBlogForm = () => {
+  //
+  // }
+
 }]);
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
