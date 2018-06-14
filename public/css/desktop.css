@@ -44,7 +44,7 @@
   }
 
   .recent-post {
-    width: 50%;
+    width: 640px;
   }
 
   .recent-img {
@@ -78,6 +78,11 @@
   .social-media {
     width: 50%;
     margin: auto;
+  }
+
+  .social-media-icon {
+    width: 45px;
+    height: 45px;
   }
 
   .mobile {
