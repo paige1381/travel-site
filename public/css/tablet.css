@@ -61,11 +61,12 @@
   }
 
   .blog {
-    width: 75%;
+    width: 77%;
     margin: 10px auto 40px auto;
   }
 
   .blog-images {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
@@ -73,6 +74,11 @@
   .blog-img {
     width: 49%;
     height: 375px;
+    object-fit: cover;
+  }
+
+  .blog-text {
+    padding: 15px 0 0 0;
   }
 
   form {

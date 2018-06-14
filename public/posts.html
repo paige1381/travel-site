@@ -1,11 +1,11 @@
 <h2 class="sub-heading">US Roadtrip</h2>
 <div class="post-index">
-  <div class="post-card" ng-repeat="blog in ctrl.blogs">
+  <div class="post-card" ng-repeat="blog in ctrl.blogs | orderBy:'created_at':1">
     <img class="card-img" src="{{blog.images[0].url}}">
     <div class="card-blurb">
       <h3 class="blog-title">{{blog.title}}</h3>
       <p class="recent-text">
-        {{blog.paragraphs[0].text | limitTo: 185}} ... <a class="more-link" href="/post/{{blog.id}}">Read More ></a>
+        {{blog.paragraphs[0].text | limitTo: 200}} ... <a class="more-link" href="/post/{{blog.id}}">Read More ></a>
       </p>
 
     </div>

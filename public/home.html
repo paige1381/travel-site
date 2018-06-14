@@ -1,9 +1,9 @@
 <h2 class="sub-heading">Recent Posts</h2>
 
 <div class="recent-post" ng-repeat="blog in ctrl.blogs | orderBy:'created_at':1 | limitTo:3">
-  <img class="recent-img" src="{{blog.images[0].url}}">
+  <img class="recent-img" src="{{blog.images[1].url}}">
   <div class="recent-blurb">
-    <img class="recent-img-2 tablet" src="{{blog.images[1].url}}">
+    <img class="recent-img-2 tablet" src="{{blog.images[0].url}}">
     <h3 class="blog-title">{{blog.title}}</h3>
     <p class="recent-text">
       {{blog.paragraphs[0].text | limitTo: 185}} ... <a class="more-link" href="/post/{{blog.id}}">Read More ></a>
