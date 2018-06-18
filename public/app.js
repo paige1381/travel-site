@@ -1,4 +1,4 @@
-const app = angular.module('travelSite', ['ngRoute', 'angularTrix']);
+const app = angular.module('travelSite', ['ngRoute']);
 
 app.run(['$rootScope', function($rootScope) {
   $rootScope.$on('$routeChangeSuccess', function () {
@@ -6,7 +6,7 @@ app.run(['$rootScope', function($rootScope) {
   })
 }])
 
-app.value('blogURL', 'https://black-dog-travel-api.herokuapp.com/blogs/');
+app.value('blogURL', 'http://localhost:3000/blogs/');
 
 app.service('blogService', ['$http', 'blogURL', function ($http, blogURL) {
 
@@ -105,15 +105,79 @@ app.controller('PostController', ['$http', 'blogService', '$routeParams', functi
 
 }]);
 
-app.controller('CreateController', ['$http', function($http) {
+app.controller('CreateController', ['$http', 'blogURL', function($http, blogURL) {
 
-  // this.blogData = {};
-  //
-  // this.processBlogForm = () => {
-  //
-  // }
+  this.formData = {};
+  this.images = [];
+  this.paragraphs = [];
+
+  this.addImage = () => {
+    this.images.push({url: null});
+  };
+
+  this.addParagraph = () => {
+    this.paragraphs.push({text: null});
+  };
+
+  this.removeImage = (index) => {
+    this.images.splice(index, 1);
+  }
+
+  this.removeParagraph = (index) => {
+    this.paragraphs.splice(index, 1);
+  }
+
+  this.clearForm = () => {
+    this.formData = {};
+    this.images = [];
+    this.paragraphs = [];
+  }
+
+  this.processForm = () => {
+    $http({
+      method: 'POST',
+      url: blogURL,
+      data: this.formData
+    }).then(response => {
+      console.log(this.formData);
+      for (let i = 0; i < this.images.length; i++) {
+        this.processImages(response.data.id, this.images[i])
+      };
+      for (let i = 0; i < this.paragraphs.length; i++) {
+        this.processParagraphs(response.data.id, this.paragraphs[i])
+      };
+      this.clearForm();
+    })
+  }
+
+  this.processImages = (id, image) => {
+    $http({
+      method: 'POST',
+      url: blogURL + id + '/images',
+      data: {
+        blog_id: id,
+        url: image.url
+      }
+    }).then(response => {
+      console.log(response.data);
+    });
+  }
+
+  this.processParagraphs = (id, paragraph) => {
+    $http({
+      method: 'POST',
+      url: blogURL + id + '/paragraphs',
+      data: {
+        blog_id: id,
+        text: paragraph.text
+      }
+    }).then(response => {
+      console.log(response.data);
+    });
+  }
 
 }]);
+
 
 app.config(['$routeProvider','$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.html5Mode({ enabled: true });

@@ -294,26 +294,59 @@ form {
   margin: 0 0 10px 0;
 }
 
+.form-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.close-icon {
+  margin-left: 10px;
+  font-size: 32px !important;
+  cursor: pointer;
+}
+
+.close-icon-paragraph {
+  align-self: flex-start;
+}
+
 input {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
   letter-spacing: .5px;
   font-weight: 300;
-  width: 100%;
+  width: 90%;
 }
 
-.input{
+.input {
   border: 1px solid grey;
   padding: 10px !important;
+}
+
+.form-title {
+  width: 100%;
   margin-bottom: 10px;
 }
 
-trix-editor {
+textarea {
   background-color: white;
   padding: 20px;
   border: 1px solid grey;
   border-radius: 0;
+  width: 90%;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  letter-spacing: .5px;
+  font-weight: 300;
 }
+
+/*trix-editor {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid grey;
+  border-radius: 0;
+}*/
 
 .button-sm, .button-lg {
   padding: 10px;

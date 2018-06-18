@@ -1,20 +1,27 @@
-<form>
+<form ng-submit="ctrl.processForm()">
 
-  <input type="text" class="input" required placeholder="Title*">
+  <input type="text" class="input form-title" required placeholder="Title*" ng-model="ctrl.formData.title">
 
   <div class="form-section">
-    <input type="text" class="input" placeholder="Image URL*">
-    <div class="button-sm">Add image</div>
+    <div class="form-row" ng-repeat="paragraph in ctrl.paragraphs">
+      <!-- <trix-editor angular-trix type="text" required>
+      </trix-editor> -->
+      <textarea type="text" required placeholder="enter text here" ng-model="ctrl.paragraphs[$index].text"></textarea>
+      <i class="material-icons close-icon close-icon-paragraph" ng-click="ctrl.removeParagraph($index)">close</i>
+    </div>
+    <div class="button-sm" ng-click="ctrl.addParagraph()">Add paragraph</div>
   </div>
 
   <div class="form-section">
-    <trix-editor angular-trix type="text" required>
-    </trix-editor>
-    <div class="button-sm">Add paragraph</div>
+    <div class="form-row" ng-repeat="image in ctrl.images">
+      <input type="text" class="input" placeholder="image url" ng-model="ctrl.images[$index].url">
+      <i class="material-icons close-icon" ng-click="ctrl.removeImage($index)">close</i>
+    </div>
+    <div class="button-sm" ng-click="ctrl.addImage()">Add image</div>
   </div>
 
   <div class="buttons">
-    <div class="button-lg">Reset</div>
-    <div class="button-lg" type="submit" value="Submit">Publish</div>
+    <div class="button-lg" ng-click=ctrl.clearForm()>Reset</div>
+    <div class="button-lg" type="submit" value="Submit" ng-click="ctrl.processForm()">Publish</div>
   </div>
 </form>
