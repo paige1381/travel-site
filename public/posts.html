@@ -1,6 +1,6 @@
 <h2 class="sub-heading">US Roadtrip</h2>
 <div class="post-index">
-  <div class="post-card" ng-repeat="blog in ctrl.blogs | orderBy:'created_at':1">
+  <div class="post-card" ng-repeat="blog in ctrl.blogs">
     <img class="card-img" src="{{blog.images[0].url}}">
     <div class="card-blurb">
       <h3 class="blog-title">{{blog.title}}</h3>

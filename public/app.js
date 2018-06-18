@@ -18,11 +18,11 @@ app.service('blogService', ['$http', 'blogURL', function ($http, blogURL) {
   }
 
   this.getBlog = (blogId) => {
-  return $http({
-    method: 'GET',
-    url: blogURL + blogId
-  })
-}
+    return $http({
+      method: 'GET',
+      url: blogURL + blogId
+    })
+  }
 
 
 }])
@@ -31,14 +31,21 @@ app.controller('MenuController', ['$http', function($http) {
   this.mobileMenu = false;
 }]);
 
-app.controller('HomeController', ['$http', 'blogService', function($http, blogService) {
+app.controller('HomeController', ['$http', 'blogURL', function($http, blogURL) {
 
-  blogService.getBlogs().then(response => {
-    this.blogs = response.data;
-    console.log(this.blogs);
-  }).catch(error => {
-    console.log('error:', error);
-  });
+  this.getHomeBlogs = () => {
+    $http({
+      method: 'GET',
+      url: blogURL + 'home'
+    }).then(response => {
+      this.blogs = response.data;
+      console.log(this.blogs);
+    }).catch(error => {
+      console.log('error:', error);
+    });
+  }
+
+this.getHomeBlogs();
 
 }]);
 
