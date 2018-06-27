@@ -9,14 +9,14 @@
       <textarea type="text" required placeholder="enter text here" ng-model="ctrl.paragraphs[$index].text"></textarea>
       <i class="material-icons close-icon close-icon-paragraph" ng-click="ctrl.removeParagraph($index)">close</i>
     </div>
-    <div class="button-sm" ng-click="ctrl.addParagraph()">Add paragraph</div>
-  </div>
+  <!-- </div>
 
-  <div class="form-section">
+  <div class="form-section"> -->
     <div class="form-row" ng-repeat="image in ctrl.images">
       <input type="text" class="input" placeholder="image url" ng-model="ctrl.images[$index].url">
       <i class="material-icons close-icon" ng-click="ctrl.removeImage($index)">close</i>
     </div>
+    <div class="button-sm" ng-click="ctrl.addParagraph()">Add paragraph</div>
     <div class="button-sm" ng-click="ctrl.addImage()">Add image</div>
   </div>
 

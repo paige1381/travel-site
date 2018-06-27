@@ -6,7 +6,9 @@ app.run(['$rootScope', function($rootScope) {
   })
 }])
 
-app.value('blogURL', 'https://black-dog-travel-api.herokuapp.com/blogs/');
+// app.value('blogURL', 'https://black-dog-travel-api.herokuapp.com/blogs/');
+app.value('blogURL', 'http://localhost:3000/blogs/');
+
 
 app.service('blogService', ['$http', 'blogURL', function ($http, blogURL) {
 
@@ -40,6 +42,7 @@ app.controller('HomeController', ['$http', 'blogURL', function($http, blogURL) {
     }).then(response => {
       this.blogs = response.data;
       console.log(this.blogs);
+      console.log(this.blogs[2].contents[this.blogs[2].feature_image_1].images.url);
     }).catch(error => {
       console.log('error:', error);
     });
@@ -63,44 +66,44 @@ app.controller('PostsController', ['$http', 'blogService', function($http, blogS
 app.controller('PostController', ['$http', 'blogService', '$routeParams', function($http, blogService, $routeParams) {
 
   this.id = $routeParams.id;
-  this.imageRepeatsArray = [];
-  this.sectionRepeatsArray = [];
+  // this.imageRepeatsArray = [];
+  // this.sectionRepeatsArray = [];
   this.blog = {};
 
   blogService.getBlog(this.id).then(response => {
       this.blog = response.data;
       console.log(this.blog);
-      this.setRepeats();
+      // this.setRepeats();
     }).catch(error => {
       console.log('error:', error);
     });
 
-  this.setRepeats = () => {
-
-    this.paragraphRepeats = this.blog.paragraphs.length - 1;
-    console.log('paragraphRepeats:', this.paragraphRepeats);
-
-    if ((this.blog.images.length - 1) % 2 === 0) {
-      this.imageRepeats = (this.blog.images.length - 1) / 2
-    }
-    else {
-      this.imageRepeats = this.blog.images.length / 2
-    }
-    console.log('imageRepeats:', this.imageRepeats);
-
-    if (this.imageRepeats > this.paragraphRepeats) {
-      this.sectionRepeats = this.paragraphRepeats + (this.imageRepeats - this.paragraphRepeats)
-    }
-    else {
-      this.sectionRepeats = this.imageRepeats + (this.paragraphRepeats - this.imageRepeats)
-    }
-
-    console.log('sectionRepeats:', this.sectionRepeats);
-    for (let i = 0; i < this.sectionRepeats; i++) {
-      this.sectionRepeatsArray.push(i);
-    }
-    console.log(this.sectionRepeatsArray);
-  }
+  // this.setRepeats = () => {
+  //
+  //   this.paragraphRepeats = this.blog.paragraphs.length - 1;
+  //   console.log('paragraphRepeats:', this.paragraphRepeats);
+  //
+  //   if ((this.blog.images.length - 1) % 2 === 0) {
+  //     this.imageRepeats = (this.blog.images.length - 1) / 2
+  //   }
+  //   else {
+  //     this.imageRepeats = this.blog.images.length / 2
+  //   }
+  //   console.log('imageRepeats:', this.imageRepeats);
+  //
+  //   if (this.imageRepeats > this.paragraphRepeats) {
+  //     this.sectionRepeats = this.paragraphRepeats + (this.imageRepeats - this.paragraphRepeats)
+  //   }
+  //   else {
+  //     this.sectionRepeats = this.imageRepeats + (this.paragraphRepeats - this.imageRepeats)
+  //   }
+  //
+  //   console.log('sectionRepeats:', this.sectionRepeats);
+  //   for (let i = 0; i < this.sectionRepeats; i++) {
+  //     this.sectionRepeatsArray.push(i);
+  //   }
+  //   console.log(this.sectionRepeatsArray);
+  // }
 
 
 }]);
