@@ -189,22 +189,28 @@ main {
   margin: 15px 0;
 }
 
-.recent-img, .card-img, .blog-img {
+.recent-post {
+  padding: 0 10px;
+}
+
+.recent-img-2, .card-img, .blog-img, .portrait-img {
   width: 100%;
   object-fit: cover;
   height: 250px;
+  margin-bottom: 5px;
 }
 
-.recent-blurb, .card-blurb {
+/*.recent-blurb, .card-blurb {
   padding: 10px;
-}
+}*/
 
 .blog-title {
   text-transform: uppercase;
-  letter-spacing: 4px;
-  font-weight: normal;
+  letter-spacing: 3px;
+  font-weight: bold;
   font-size: 16px;
-  margin: 0 0 5px 0;
+  margin: 5px 0;
+  display: flex;
 }
 
 .recent-text {
@@ -254,12 +260,14 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 10px;
 }
 
 .blog {
   margin: 0 0 40px 0;
   display: flex;
   flex-direction: column;
+  padding: 15px 10px;
 }
 
 .blog-text {
@@ -267,24 +275,26 @@ main {
   font-family: 'Source Sans Pro', sans-serif;
   letter-spacing: .5px;
   font-weight: 300;
-  margin: 0;
-  padding: 15px 10px 0 10px;
+  margin: 0 0 10px 0;
 }
 
-/*.feature-imgs {
-  width: 100%;
-  height: 67%;
-  margin: 15px 0 0 0;
-}*/
+.blog-images {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
 
-.feature-img {
+.feature-img, .square-img-2, .square-img-3 {
   width: 100%;
   object-fit: cover;
-  height: 500px;
+  height: 250px;
+  margin-bottom: 10px;
 }
 
 .blog-img {
   height: 350px;
+  margin-bottom: 10px;
 }
 
 form {
@@ -440,28 +450,33 @@ footer a {
   .sub-heading {
     width: 60%;
     padding-left: 100px;
+    margin: 0 0 10px 0;
   }
 
   .alt-sub-heading {
     width: 60%;
     padding-right: 100px;
+    margin: 10px 0 0 0;
   }
 
   .recent-post {
-    width: 65%;
+    width: 600px;
     flex-direction: row;
-    margin: 25px auto;
+    margin: auto;
+    padding: 15px 0;
   }
 
   .recent-img {
-    width: 45%;
-    height: 300px;
+    width: 250px;
+    height: 375px;
+    object-fit: cover;
   }
 
   .recent-img-2 {
     width: 100%;
     object-fit: cover;
-    height: 150px;
+    height: 233px;
+    margin-bottom: 0;
   }
 
   .blog-title {
@@ -469,10 +484,10 @@ footer a {
   }
 
   .recent-blurb {
-    width: 55%;
+    width: 350px;
     display: flex;
     flex-direction: column;
-    padding: 0 10px;
+    padding: 0 0 0 10px;
   }
 
   .recent-text {
@@ -485,52 +500,63 @@ footer a {
   }
 
   .post-index {
-    width: 75%;
+    width: 600px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 10px auto;
+    margin: 0 auto 55px auto;
+    padding: 0;
   }
 
   .post-card {
     display: flex;
     flex-direction: column;
-    width: 48%;
+    width: 292.5px;
   }
 
   .blog {
-    width: 77%;
-    margin: 10px auto 40px auto;
+    width: 600px;
+    margin: 15px auto 40px auto;
+    padding: 0;
+  }
+
+  .feature-img {
+    height: 400px;
+    margin: 0;
   }
 
   .blog-images {
-    margin: 15px 0 0 0;
-    display: flex;
+    margin: 0 0 15px 0;
     flex-direction: row;
     justify-content: space-between;
   }
 
   .blog-img {
-    width: 372.5px;
-    height: 558.75px;
+    width: 295px;
+    height: 442.5px;
     object-fit: cover;
+    margin: 0;
   }
 
   .square-img-2 {
-    width: 372.5px;
-    height: 372.5px;
-    object-fit: cover;
+    width: 295px;
+    height: 295px;
+    margin: 0;
   }
 
   .square-img-3 {
-    width: 246.6px;
-    height: 246.6px;
-    object-fit: cover;
+    width: 193.3px;
+    height: 193.3px;
+    margin: 0;
   }
 
+  .portrait-img {
+    width: 640px;
+    height: 640px;
+  }
 
   .blog-text {
-    padding: 15px 0 0 0;
+    margin: 0 0 15px 0;
   }
 
   form {
@@ -590,23 +616,27 @@ footer a {
     width: 50%;
     text-align: left;
     padding: 15px 15px 15px 150px;
-    margin-top: 15px;
   }
 
   .recent-post {
-    width: 640px;
+    width: 750px;
+  }
+
+  .recent-blurb {
+    width: 420px;
   }
 
   .recent-img {
-    height: 400px;
+    width: 320px;
+    height: 480px;
   }
 
   .recent-img-2 {
-    height: 200px;
+    height: 280px;
   }
 
   .post-index {
-    width: 50%;
+    width: 750px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -615,6 +645,45 @@ footer a {
 
   .blog {
     width: 750px;
+  }
+
+  .feature-img {
+    height: 500px;
+    margin: 0;
+  }
+
+  .blog-images {
+    margin: 0 0 15px 0;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .blog-img {
+    width: 370px;
+    height: 558.75px;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  .square-img-2 {
+    width: 370px;
+    height: 370px;
+    margin: 0;
+  }
+
+  .square-img-3 {
+    width: 243px;
+    height: 243px;
+    margin: 0;
+  }
+
+  .portrait-img {
+    width: 750px;
+    height: 750px;
+  }
+
+  .post-card {
+    width: 365px;
   }
 
   form {
