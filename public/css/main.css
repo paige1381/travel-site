@@ -18,6 +18,7 @@ body {
   flex-direction: column;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  position: relative;
 }
 
 a {
@@ -135,7 +136,6 @@ input:focus, button:focus, textarea:focus, select:focus {
 .slide {
   left: 0;
   color: red;
-
 }
 
 .heading {
