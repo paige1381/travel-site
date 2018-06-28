@@ -42,7 +42,6 @@ app.controller('HomeController', ['$http', 'blogURL', function($http, blogURL) {
     }).then(response => {
       this.blogs = response.data;
       console.log(this.blogs);
-      console.log(this.blogs[2].contents[this.blogs[2].feature_image_1].images.url);
     }).catch(error => {
       console.log('error:', error);
     });
