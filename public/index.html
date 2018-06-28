@@ -21,13 +21,13 @@
   <body>
 
     <div ng-controller="MenuController as ctrl"  class="mobile tablet">
-      <header>
+      <nav>
         <i class="material-icons menu-icon" ng-click="ctrl.mobileMenu = !ctrl.mobileMenu" ng-class="ctrl.mobileMenu ? 'slide' : ''">menu</i>
         <!-- <div class="row search">
           <i class="material-icons search-icon">search</i>
           <input class="search-box" type="text" placeholder="search"></input>
         </div> -->
-      </header>
+      </nav>
       <div class="menu-bkgd" ng-click="ctrl.mobileMenu = false" ng-class="ctrl.mobileMenu? 'slide' : ''">
       </div>
       <div class="slide-menu" ng-class="ctrl.mobileMenu ? 'slide' : ''">
