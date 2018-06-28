@@ -20,18 +20,29 @@
   </head>
   <body>
 
-    <div ng-controller="MenuController as ctrl">
-      <div class="menu tablet mobile">
+    <header ng-controller="MenuController as ctrl"  class="mobile tablet">
+      <nav>
         <i class="material-icons menu-icon" ng-click="ctrl.mobileMenu = !ctrl.mobileMenu">menu</i>
+        <!-- <div class="row search">
+          <i class="material-icons search-icon">search</i>
+          <input class="search-box" type="text" placeholder="search"></input>
+        </div> -->
+      </nav>
+      <div class="menu-bkgd" ng-click="ctrl.mobileMenu = false" ng-class="ctrl.mobileMenu? 'slide' : ''">
       </div>
-      <!-- <div class="menu-bkgd" ng-click="ctrl.mobileMenu = false" ng-class="ctrl.mobileMenu? 'slide' : ''">
-      </div> -->
-      <nav ng-class="ctrl.mobileMenu ? 'slide' : ''" class="slide-menu tablet mobile">
+      <div class="slide-menu" ng-class="ctrl.mobileMenu? 'slide' : ''">
+        <!-- <a class="menu-link" href="#" ng-click="ctrl.mobileMenu = false">
+          <h5>Countries</h5>
+        </a>
+        <a class="menu-link" href="#" ng-click="ctrl.mobileMenu = false">
+          <h5>States</h5>
+        </a> -->
         <a class="menu-link" href="/posts" ng-click="ctrl.mobileMenu = false">
           <h5>US Roadtrip</h5>
         </a>
-      </nav>
-    </div>
+      </div>
+
+    </header>
 
     <a href="/" class="heading">
       <h1 class="title">Black Dog</h1>
@@ -40,6 +51,12 @@
 
     <div class="nav-bar desktop">
       <div class="nav-links">
+        <!-- <a class="menu-link" href="#">
+          <h5>Countries</h5>
+        </a>
+        <a class="menu-link" href="#">
+          <h5>States</h5>
+        </a> -->
         <a class="menu-link" href="/posts">
           <h5>US Roadtrip</h5>
         </a>
