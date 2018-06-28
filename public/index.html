@@ -20,14 +20,14 @@
   </head>
   <body>
 
-    <header ng-controller="MenuController as ctrl"  class="mobile tablet">
-      <nav>
+    <div ng-controller="MenuController as ctrl"  class="mobile tablet">
+      <header>
         <i class="material-icons menu-icon" ng-click="ctrl.mobileMenu = !ctrl.mobileMenu" ng-class="ctrl.mobileMenu ? 'slide' : ''">menu</i>
         <!-- <div class="row search">
           <i class="material-icons search-icon">search</i>
           <input class="search-box" type="text" placeholder="search"></input>
         </div> -->
-      </nav>
+      </header>
       <div class="menu-bkgd" ng-click="ctrl.mobileMenu = false" ng-class="ctrl.mobileMenu? 'slide' : ''">
       </div>
       <div class="slide-menu" ng-class="ctrl.mobileMenu ? 'slide' : ''">
@@ -42,7 +42,7 @@
         </a>
       </div>
 
-    </header>
+    </div>
 
     <a href="/" class="heading">
       <h1 class="title">Black Dog</h1>

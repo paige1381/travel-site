@@ -18,7 +18,6 @@ body {
   flex-direction: column;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
-  position: relative;
 }
 
 a {
@@ -47,15 +46,17 @@ header {
   align-items: center;
   display: flex;
   flex-shrink: 0;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
-nav {
+/*nav {
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
+}*/
 
 .menu-icon {
   margin: 0;
@@ -77,22 +78,22 @@ nav {
 }
 
 .slide-menu {
+  display: flex;
+  flex-direction: column;
+  margin: 65px 0 0 0;
   width: 45%;
   height: 100%;
   position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 1);
+  left: -45%;
+  border-right: 1px solid lightgrey;
   transition: all .3s ease-in-out;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
   -o-transition: all .3s ease-in-out;
   z-index: 5;
-  left: -45%;
-  top: 0;
-  margin: 65px 0 0 0;
-  background-color: rgba(255, 255, 255, 1);
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid lightgrey;
 }
 
 .menu-link {
