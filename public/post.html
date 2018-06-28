@@ -1,6 +1,5 @@
 <h2 class="sub-heading">{{ctrl.blog.title}}</h2>
 <div class="blog">
-
   <div ng-repeat="content in ctrl.blog.contents">
     <div ng-if="content.image" class="blog-images">
       <img ng-repeat="image in content.images" ng-class="content.image_type === 0 ? 'feature-img' : (content.image_type === 2 ? 'blog-img' : (content.image_type === 3 ? 'square-img-2' : (content.image_type === 1 ? 'portrait-img' : 'square-img-3')))" src="{{image.url}}">
@@ -9,10 +8,4 @@
       {{content.content}}
     </p>
   </div>
-
-
-
-
-
-
 </div>
