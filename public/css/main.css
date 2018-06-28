@@ -134,10 +134,8 @@ input:focus, button:focus, textarea:focus, select:focus {
 
 .slide {
   left: 0;
-}
-
-.red {
   color: red;
+
 }
 
 .heading {
