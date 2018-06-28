@@ -6,8 +6,8 @@ app.run(['$rootScope', function($rootScope) {
   })
 }])
 
-// app.value('blogURL', 'https://black-dog-travel-api.herokuapp.com/blogs/');
-app.value('blogURL', 'http://localhost:3000/blogs/');
+app.value('blogURL', 'https://black-dog-travel-api.herokuapp.com/blogs/');
+// app.value('blogURL', 'http://localhost:3000/blogs/');
 
 
 app.service('blogService', ['$http', 'blogURL', function ($http, blogURL) {
