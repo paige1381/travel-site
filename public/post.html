@@ -5,7 +5,7 @@
       <img ng-repeat="image in content.images" ng-class="content.image_type === 0 ? 'feature-img' : (content.image_type === 2 ? 'blog-img' : (content.image_type === 3 ? 'square-img-2' : (content.image_type === 1 ? 'portrait-img' : 'square-img-3')))" src="{{image.url}}">
     </div>
     <p class="blog-text" ng-if="!content.image">
-      {{content.content}}
+      {{content.text}}
     </p>
   </div>
 </div>

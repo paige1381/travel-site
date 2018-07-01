@@ -308,6 +308,8 @@ form {
   padding: 20px 10px;
   width: 100%;
   margin: 0 0 10px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-row {
@@ -323,21 +325,33 @@ form {
   cursor: pointer;
 }
 
-.close-icon-paragraph {
-  align-self: flex-start;
-}
-
-input {
+/*input {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 16px;
   letter-spacing: .5px;
   font-weight: 300;
   width: 90%;
-}
+}*/
 
-.input {
+.input, .input-img {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  letter-spacing: .5px;
+  font-weight: 300;
+  width: 90%;
   border: 1px solid grey;
   padding: 10px !important;
+}
+
+.input-img {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.img-group {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-title {
@@ -347,7 +361,7 @@ input {
 
 textarea {
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid grey;
   border-radius: 0;
   width: 90%;
@@ -356,6 +370,67 @@ textarea {
   letter-spacing: .5px;
   font-weight: 300;
 }
+
+.required-text {
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+}
+
+.image-options, .image-option, .image-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-options {
+  justify-content: space-between;
+}
+
+.image-option {
+  width: 20%;
+}
+
+.image-row {
+  margin-left: 5px;
+}
+
+.landscape {
+  background-color: darkgrey;
+  width: 50px;
+  height: 33px;
+  margin-left: 5px;
+}
+
+.square-1 {
+  background-color: darkgrey;
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+}
+
+.portrait {
+  background-color: darkgrey;
+  width: 25px;
+  height: 37.5px;
+  margin-right: 5px;
+}
+
+.square-2 {
+  background-color: darkgrey;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+.square-3 {
+  background-color: darkgrey;
+  width: 16.6px;
+  height: 16.6px;
+  margin-right: 5px;
+}
+
+
+
 
 /*trix-editor {
   background-color: white;
@@ -445,6 +520,10 @@ footer a {
 
 .mobile {
   display: flex;
+}
+
+.hide {
+  display: none;
 }
 
 

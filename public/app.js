@@ -6,8 +6,10 @@ app.run(['$rootScope', function($rootScope) {
   })
 }])
 
-app.value('blogURL', 'https://black-dog-travel-api.herokuapp.com/blogs/');
-// app.value('blogURL', 'http://localhost:3000/blogs/');
+// app.value('blogURL', 'https://black-dog-travel-api.herokuapp.com/blogs/');
+app.value('blogURL', 'http://localhost:3000/blogs/');
+// app.value('contentURL', 'https://black-dog-travel-api.herokuapp.com/contents/');
+app.value('contentURL', 'http://localhost:3000/contents/');
 
 
 app.service('blogService', ['$http', 'blogURL', function ($http, blogURL) {
@@ -65,116 +67,171 @@ app.controller('PostsController', ['$http', 'blogService', function($http, blogS
 app.controller('PostController', ['$http', 'blogService', '$routeParams', function($http, blogService, $routeParams) {
 
   this.id = $routeParams.id;
-  // this.imageRepeatsArray = [];
-  // this.sectionRepeatsArray = [];
   this.blog = {};
 
   blogService.getBlog(this.id).then(response => {
       this.blog = response.data;
       console.log(this.blog);
-      // this.setRepeats();
     }).catch(error => {
       console.log('error:', error);
     });
 
-  // this.setRepeats = () => {
-  //
-  //   this.paragraphRepeats = this.blog.paragraphs.length - 1;
-  //   console.log('paragraphRepeats:', this.paragraphRepeats);
-  //
-  //   if ((this.blog.images.length - 1) % 2 === 0) {
-  //     this.imageRepeats = (this.blog.images.length - 1) / 2
-  //   }
-  //   else {
-  //     this.imageRepeats = this.blog.images.length / 2
-  //   }
-  //   console.log('imageRepeats:', this.imageRepeats);
-  //
-  //   if (this.imageRepeats > this.paragraphRepeats) {
-  //     this.sectionRepeats = this.paragraphRepeats + (this.imageRepeats - this.paragraphRepeats)
-  //   }
-  //   else {
-  //     this.sectionRepeats = this.imageRepeats + (this.paragraphRepeats - this.imageRepeats)
-  //   }
-  //
-  //   console.log('sectionRepeats:', this.sectionRepeats);
-  //   for (let i = 0; i < this.sectionRepeats; i++) {
-  //     this.sectionRepeatsArray.push(i);
-  //   }
-  //   console.log(this.sectionRepeatsArray);
-  // }
-
-
 }]);
 
-app.controller('CreateController', ['$http', 'blogURL', function($http, blogURL) {
+app.controller('CreateController', ['$http', 'blogURL', 'contentURL', function($http, blogURL, contentURL) {
 
   this.formData = {};
-  this.images = [];
-  this.paragraphs = [];
+  this.imageMenu = false;
+  this.imageType = null;
+  this.imageNum = null;
+  this.contents = [];
+  this.feature_text = null;
+  this.feature_image_1 = null;
+  this.feature_image_2 = null;
 
-  this.addImage = () => {
-    this.images.push({url: null});
+  this.showImageMenu = () => {
+    this.imageMenu = true;
   };
 
-  this.addParagraph = () => {
-    this.paragraphs.push({text: null});
-  };
+  this.addImages = () => {
+    this.imageMenu = false;
+    this.imageType = parseInt(this.imageType);
 
-  this.removeImage = (index) => {
-    this.images.splice(index, 1);
+    switch(this.imageType) {
+      case 0:
+      case 1:
+        this.imageNum = 1;
+        break;
+      case 2:
+      case 3:
+        this.imageNum = 2;
+        break;
+      case 4:
+        this.imageNum = 3;
+    }
+
+    this.contents.push({
+      image: 1,
+      image_type: this.imageType,
+      image_num: this.imageNum,
+      images: []
+    });
+
+    for (let i = 0; i < this.imageNum; i++) {
+      this.contents[this.contents.length - 1].images.push({
+        url: null,
+        form_order: i
+      });
+    }
+    console.log(this.contents);
   }
 
-  this.removeParagraph = (index) => {
-    this.paragraphs.splice(index, 1);
+  this.addParagraph = () => {
+    this.contents.push({
+      text: null,
+      image: 0
+    });
+    console.log(this.contents);
+  };
+
+  this.findFeatureText = () => {
+    for (let i = 0; i < this.contents.length; i++) {
+      if (!this.contents[i].image) {
+        this.feature_text = this.contents[i].text;
+        return;
+      }
+    }
+  }
+
+  this.findFeatureImage1 = () => {
+    console.log("findFeatureImage1");
+    console.log(this.contents);
+    for (let i = 0; i < this.contents.length; i++) {
+      if (this.contents[i].image && this.contents[i].image_type === 0) {
+        console.log(this.contents[i].images[0].url);
+        this.feature_image_1 = this.contents[i].images[0].url;
+        console.log(this.feature_image_1);
+        return;
+      }
+    }
+  }
+
+  this.findFeatureImage2 = () => {
+    console.log("findFeatureImage2");
+    for (let i = 0; i < this.contents.length; i++) {
+      if (this.contents[i].image && (this.contents[i].image_type === 1 || this.contents[i].image_type === 2)) {
+        console.log(this.contents[i].images[0].url);
+        this.feature_image_2 = this.contents[i].images[0].url;
+        return;
+      }
+    }
+  }
+
+
+  this.removeContent = (index) => {
+    this.contents.splice(index, 1);
   }
 
   this.clearForm = () => {
     this.formData = {};
-    this.images = [];
-    this.paragraphs = [];
+    this.contents = [];
   }
 
   this.processForm = () => {
+    console.log("start processForm");
+    this.findFeatureText();
+    this.findFeatureImage1();
+    this.findFeatureImage2();
     $http({
       method: 'POST',
       url: blogURL,
-      data: this.formData
+      data: {
+        title: this.formData.title,
+        feature_text: this.feature_text,
+        feature_image_1: this.feature_image_1,
+        feature_image_2: this.feature_image_2
+      }
     }).then(response => {
-      console.log(this.formData);
-      for (let i = 0; i < this.images.length; i++) {
-        this.processImages(response.data.id, this.images[i])
-      };
-      for (let i = 0; i < this.paragraphs.length; i++) {
-        this.processParagraphs(response.data.id, this.paragraphs[i])
+      console.log(response.data);
+      for (let i = 0; i < this.contents.length; i++) {
+        this.processContent(response.data.id, this.contents[i], i)
       };
       this.clearForm();
     })
+
   }
 
   this.processImages = (id, image) => {
     $http({
       method: 'POST',
-      url: blogURL + id + '/images',
+      url: contentURL + id + '/images',
       data: {
-        blog_id: id,
-        url: image.url
+        content_id: id,
+        url: image.url,
+        form_order: image.form_order
       }
     }).then(response => {
-      console.log(response.data);
     });
   }
 
-  this.processParagraphs = (id, paragraph) => {
+  this.processContent = (id, content, order) => {
     $http({
       method: 'POST',
-      url: blogURL + id + '/paragraphs',
+      url: blogURL + id + '/contents',
       data: {
         blog_id: id,
-        text: paragraph.text
+        form_order: order,
+        image: content.image,
+        image_type: content.image_type,
+        text: content.text,
+        image_num: content.image_num
       }
     }).then(response => {
-      console.log(response.data);
+      if (response.data.image) {
+        for (let i = 0; i < content.images.length; i++) {
+          this.processImages(response.data.id, content.images[i]);
+        };
+      };
     });
   }
 

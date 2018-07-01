@@ -3,21 +3,70 @@
   <input type="text" class="input form-title" required placeholder="Title*" ng-model="ctrl.formData.title">
 
   <div class="form-section">
-    <div class="form-row" ng-repeat="paragraph in ctrl.paragraphs">
+    <!-- <input type="text" class="input required-text" placeholder="image url*" ng-model="ctrl.content[$index].content">
+    <textarea type="text" class="required-text" required placeholder="enter text here*" ng-model="ctrl.content[$index].content"></textarea> -->
+
+    <div class="form-row" ng-repeat="content in ctrl.contents">
       <!-- <trix-editor angular-trix type="text" required>
       </trix-editor> -->
-      <textarea type="text" required placeholder="enter text here" ng-model="ctrl.paragraphs[$index].text"></textarea>
-      <i class="material-icons close-icon close-icon-paragraph" ng-click="ctrl.removeParagraph($index)">close</i>
-    </div>
-  <!-- </div>
+      <textarea ng-if="!content.image" type="text" required placeholder="enter text here" ng-model="ctrl.contents[$index].text"></textarea>
 
-  <div class="form-section"> -->
-    <div class="form-row" ng-repeat="image in ctrl.images">
+      <div ng-if="content.image" class="img-group">
+        <input ng-repeat="image in ctrl.contents[$index].images" type="text" class="input-img" placeholder="image url" ng-model="content.images[$index].url">
+      </div>
+      <i class="material-icons close-icon" ng-click="ctrl.removeContent($index)">close</i>
+
+    </div>
+
+
+    <!-- <div class="form-row" ng-repeat="image in ctrl.images">
       <input type="text" class="input" placeholder="image url" ng-model="ctrl.images[$index].url">
-      <i class="material-icons close-icon" ng-click="ctrl.removeImage($index)">close</i>
+      <i class="material-icons close-icon" ng-click="ctrl.removeContent($index)">close</i>
+    </div> -->
+
+    <div class="image-options" ng-class="ctrl.imageMenu? '' : 'hide'">
+      <div class="image-option">
+        <input type="radio" value="0" ng-model="ctrl.imageType" ng-click="ctrl.addImages()">
+        <div class="landscape">
+        </div>
+      </div>
+      <div class="image-option">
+        <input type="radio" value="1" ng-model="ctrl.imageType" ng-click="ctrl.addImages()">
+        <div class="square-1">
+        </div>
+      </div>
+      <div class="image-option">
+        <input type="radio" value="2" ng-model="ctrl.imageType" ng-click="ctrl.addImages()">
+        <div class="image-row">
+          <div class="portrait">
+          </div>
+          <div class="portrait">
+          </div>
+        </div>
+      </div>
+      <div class="image-option">
+        <input type="radio" value="3" ng-model="ctrl.imageType" ng-click="ctrl.addImages()">
+        <div class="image-row">
+          <div class="square-2">
+          </div>
+          <div class="square-2">
+          </div>
+        </div>
+      </div>
+      <div class="image-option">
+        <input type="radio" value="4" ng-model="ctrl.imageType" ng-click="ctrl.addImages()">
+        <div class="image-row">
+          <div class="square-3">
+          </div>
+          <div class="square-3">
+          </div>
+          <div class="square-3">
+          </div>
+        </div>
+      </div>
     </div>
     <div class="button-sm" ng-click="ctrl.addParagraph()">Add paragraph</div>
-    <div class="button-sm" ng-click="ctrl.addImage()">Add image</div>
+    <div class="button-sm" ng-click="ctrl.showImageMenu()">Add image</div>
   </div>
 
   <div class="buttons">
