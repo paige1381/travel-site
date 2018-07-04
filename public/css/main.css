@@ -351,7 +351,8 @@ form {
 .img-group {
   width: 90%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .form-title {
@@ -642,7 +643,7 @@ footer a {
 
   form {
     margin: 15px auto 40px auto;
-    width: 75%;
+    width: 600px;
   }
 
   .mobile {
@@ -733,6 +734,14 @@ footer a {
     margin: 0;
   }
 
+  .preview-feature-img {
+    height: 438px;
+    margin: 0;
+    width: 100%;
+    object-fit: cover;
+  }
+
+
   .blog-images {
     margin: 0 0 15px 0;
     flex-direction: row;
@@ -746,10 +755,24 @@ footer a {
     margin: 0;
   }
 
+  .preview-blog-img {
+    width: 323.5px;
+    height: 485.25px;
+    object-fit: cover;
+    margin: 0;
+  }
+
   .square-img-2 {
     width: 370px;
     height: 370px;
     margin: 0;
+  }
+
+  .preview-square-img-2 {
+    width: 323.5px;
+    height: 323.5px;
+    margin: 0;
+    object-fit: cover;
   }
 
   .square-img-3 {
@@ -758,17 +781,32 @@ footer a {
     margin: 0;
   }
 
+  .preview-square-img-3 {
+    width: 212px;
+    height: 212px;
+    margin: 0;
+    object-fit: cover;
+  }
+
   .portrait-img {
     width: 750px;
     height: 750px;
+    object-fit: cover;
   }
+
+  .preview-portrait-img {
+    width: 100%;
+    height: 657px;
+    object-fit: cover;
+  }
+
 
   .post-card {
     width: 365px;
   }
 
   form {
-    width: 50%;
+    width: 750px;
   }
 
   .footing {

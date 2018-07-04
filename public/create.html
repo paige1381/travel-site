@@ -3,8 +3,6 @@
   <input type="text" class="input form-title" required placeholder="Title*" ng-model="ctrl.formData.title">
 
   <div class="form-section">
-    <!-- <input type="text" class="input required-text" placeholder="image url*" ng-model="ctrl.content[$index].content">
-    <textarea type="text" class="required-text" required placeholder="enter text here*" ng-model="ctrl.content[$index].content"></textarea> -->
 
     <div class="form-row" ng-repeat="content in ctrl.contents">
       <!-- <trix-editor angular-trix type="text" required>
@@ -12,17 +10,12 @@
       <textarea ng-if="!content.image" type="text" required placeholder="enter text here" ng-model="ctrl.contents[$index].text"></textarea>
 
       <div ng-if="content.image" class="img-group">
-        <input ng-repeat="image in ctrl.contents[$index].images" type="text" class="input-img" placeholder="image url" ng-model="content.images[$index].url">
+        <input ng-if="!content.images[$index].url" ng-repeat="image in ctrl.contents[$index].images" type="text" class="input-img" placeholder="image url" ng-model="content.images[$index].url">
+        <img ng-if="content.images[$index].url" src="{{content.images[$index].url}}" ng-repeat="image in ctrl.contents[$index].images" ng-class="content.image_type === 0 ? 'preview-feature-img' : (content.image_type === 2 ? 'preview-blog-img' : (content.image_type === 3 ? 'preview-square-img-2' : (content.image_type === 1 ? 'preview-portrait-img' : 'preview-square-img-3')))"/>
       </div>
       <i class="material-icons close-icon" ng-click="ctrl.removeContent($index)">close</i>
 
     </div>
-
-
-    <!-- <div class="form-row" ng-repeat="image in ctrl.images">
-      <input type="text" class="input" placeholder="image url" ng-model="ctrl.images[$index].url">
-      <i class="material-icons close-icon" ng-click="ctrl.removeContent($index)">close</i>
-    </div> -->
 
     <div class="image-options" ng-class="ctrl.imageMenu? '' : 'hide'">
       <div class="image-option">
