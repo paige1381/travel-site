@@ -144,7 +144,6 @@ app.controller('CreateController', ['$http', 'blogURL', 'contentURL', function($
   }
 
   this.findFeatureImage1 = () => {
-    console.log("findFeatureImage1");
     console.log(this.contents);
     for (let i = 0; i < this.contents.length; i++) {
       if (this.contents[i].image && this.contents[i].image_type === 0) {
@@ -157,7 +156,6 @@ app.controller('CreateController', ['$http', 'blogURL', 'contentURL', function($
   }
 
   this.findFeatureImage2 = () => {
-    console.log("findFeatureImage2");
     for (let i = 0; i < this.contents.length; i++) {
       if (this.contents[i].image && (this.contents[i].image_type === 1 || this.contents[i].image_type === 2)) {
         console.log(this.contents[i].images[0].url);
